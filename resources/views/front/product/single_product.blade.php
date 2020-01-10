@@ -204,55 +204,58 @@
         <!-- Container End -->
     </div>
     <!-- Product Thumbnail Description End -->
-    <!-- Best Seller Products Start -->
-    <div class="best-seller-products pb-100">
-        <div class="container">
-            <div class="row">
-                <!-- Section Title Start -->
-                <div class="col-xs-12">
-                    <div class="section-title text-center mb-40">
-                        <h3 class="section-info">RELATED PRODUCTS</h3>
+    @if (count($related_products) > 0)
+        <!-- Best Seller Products Start -->
+        <div class="best-seller-products pb-100">
+            <div class="container">
+                <div class="row">
+                    <!-- Section Title Start -->
+                    <div class="col-xs-12">
+                        <div class="section-title text-center mb-40">
+                            <h3 class="section-info">RELATED PRODUCTS</h3>
+                        </div>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+
+                <!-- Row End -->
+                <div class="row">
+                    <!-- Best Seller Product Activation Start -->
+                    <div class="best-seller new-products owl-carousel">
+                    @foreach($related_products as $related_product)
+                        <!-- Single Product Start -->
+                            <div class="single-product">
+                                <!-- Product Image Start -->
+                                <div class="pro-img">
+                                    <a href="{{ route('single_product',['slug'=>$related_product->slug]) }}">
+                                        <img class="primary-img" src="{{ url('/').$related_product->img_thumbnail }}" alt="single-product">
+                                        <img class="secondary-img" src="{{ url('/').$related_product->img_thumbnail }}" alt="single-product">
+                                    </a>
+                                    <div class="quick-view">
+                                        <a href="{{ route('single_product',['slug'=>$product->slug]) }}" data-toggle="modal" data-target="#myModal"><i class="pe-7s-look"></i>quick view</a>
+                                    </div>
+                                    <span class="sticker-new">new</span>
+                                </div>
+                                <!-- Product Image End -->
+                                <!-- Product Content Start -->
+                                <div class="pro-content text-center">
+                                    <h4><a href="{{ route('single_product',['slug'=>$related_product->slug]) }}">{{ $related_product->title }}</a></h4>
+                                    <p class="price"><span>{{ number_format($related_product->price) }}</span></p>
+                                    <div class="action-links2">
+                                        <a data-toggle="tooltip" title="Add to Cart" href="cart.html">add to cart</a>
+                                    </div>
+                                </div>
+                                <!-- Product Content End -->
+                            </div>
+                            <!-- Single Product End -->
+                        @endforeach
                     </div>
                 </div>
-                <!-- Section Title End -->
+                <!-- Row End -->
             </div>
-            <!-- Row End -->
-            <div class="row">
-                <!-- Best Seller Product Activation Start -->
-                <div class="best-seller new-products owl-carousel">
-                    @foreach($related_products as $related_product)
-                    <!-- Single Product Start -->
-                        <div class="single-product">
-                            <!-- Product Image Start -->
-                            <div class="pro-img">
-                                <a href="{{ route('single_product',['slug'=>$related_product->slug]) }}">
-                                    <img class="primary-img" src="{{ url('/').$related_product->img_thumbnail }}" alt="single-product">
-                                    <img class="secondary-img" src="{{ url('/').$related_product->img_thumbnail }}" alt="single-product">
-                                </a>
-                                <div class="quick-view">
-                                    <a href="{{ route('single_product',['slug'=>$product->slug]) }}" data-toggle="modal" data-target="#myModal"><i class="pe-7s-look"></i>quick view</a>
-                                </div>
-                                <span class="sticker-new">new</span>
-                            </div>
-                            <!-- Product Image End -->
-                            <!-- Product Content Start -->
-                            <div class="pro-content text-center">
-                                <h4><a href="{{ route('single_product',['slug'=>$related_product->slug]) }}">{{ $related_product->title }}</a></h4>
-                                <p class="price"><span>{{ number_format($related_product->price) }}</span></p>
-                                <div class="action-links2">
-                                    <a data-toggle="tooltip" title="Add to Cart" href="cart.html">add to cart</a>
-                                </div>
-                            </div>
-                            <!-- Product Content End -->
-                        </div>
-                    <!-- Single Product End -->
-                    @endforeach
-                </div>
-            </div>
-            <!-- Row End -->
+            <!-- Container End -->
         </div>
-        <!-- Container End -->
-    </div>
-    <!-- Best Seller Products End -->
+        <!-- Best Seller Products End -->
+    @endif
 
 @stop

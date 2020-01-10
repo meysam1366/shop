@@ -14,6 +14,7 @@
 Route::namespace('Admin')->prefix('admin')->group(function () {
     Route::get('/','DashboardController@index')->name('dashboard');
     Route::resource('category','CategoryController');
+    Route::resource('slider','SliderController');
     Route::resource('brand','BrandController');
     Route::resource('color','ColorController');
     Route::resource('discount','DiscountController');

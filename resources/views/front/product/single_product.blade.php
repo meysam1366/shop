@@ -220,155 +220,33 @@
             <div class="row">
                 <!-- Best Seller Product Activation Start -->
                 <div class="best-seller new-products owl-carousel">
+                    @foreach($related_products as $related_product)
                     <!-- Single Product Start -->
-                    <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="#">
-                                <img class="primary-img" src="img/new-products/1_2.jpg" alt="single-product">
-                                <img class="secondary-img" src="img/new-products/5_1.jpg" alt="single-product">
-                            </a>
-                            <div class="quick-view">
-                                <a href="#" data-toggle="modal" data-target="#myModal"><i class="pe-7s-look"></i>quick view</a>
+                        <div class="single-product">
+                            <!-- Product Image Start -->
+                            <div class="pro-img">
+                                <a href="{{ route('single_product',['slug'=>$related_product->slug]) }}">
+                                    <img class="primary-img" src="{{ url('/').$related_product->img_thumbnail }}" alt="single-product">
+                                    <img class="secondary-img" src="{{ url('/').$related_product->img_thumbnail }}" alt="single-product">
+                                </a>
+                                <div class="quick-view">
+                                    <a href="{{ route('single_product',['slug'=>$product->slug]) }}" data-toggle="modal" data-target="#myModal"><i class="pe-7s-look"></i>quick view</a>
+                                </div>
+                                <span class="sticker-new">new</span>
                             </div>
-                            <span class="sticker-new">new</span>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content text-center">
-                            <h4><a href="product-page.html">Decorative Vase</a></h4>
-                            <p class="price"><span>$241.99</span></p>
-                            <div class="action-links2">
-                                <a data-toggle="tooltip" title="Add to Cart" href="cart.html">add to cart</a>
+                            <!-- Product Image End -->
+                            <!-- Product Content Start -->
+                            <div class="pro-content text-center">
+                                <h4><a href="{{ route('single_product',['slug'=>$related_product->slug]) }}">{{ $related_product->title }}</a></h4>
+                                <p class="price"><span>{{ number_format($related_product->price) }}</span></p>
+                                <div class="action-links2">
+                                    <a data-toggle="tooltip" title="Add to Cart" href="cart.html">add to cart</a>
+                                </div>
                             </div>
+                            <!-- Product Content End -->
                         </div>
-                        <!-- Product Content End -->
-                    </div>
                     <!-- Single Product End -->
-                    <!-- Single Product Start -->
-                    <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="#">
-                                <img class="primary-img" src="img/new-products/3_1.jpg" alt="single-product">
-                                <img class="secondary-img" src="img/new-products/6_2.jpg" alt="single-product">
-                            </a>
-                            <div class="quick-view">
-                                <a href="#" data-toggle="modal" data-target="#myModal"><i class="pe-7s-look"></i>quick view</a>
-                            </div>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content text-center">
-                            <h4><a href="product-page.html">Decorative Vase</a></h4>
-                            <p class="price"><span>$241.99</span></p>
-                            <div class="action-links2">
-                                <a data-toggle="tooltip" title="Add to Cart" href="cart.html">add to cart</a>
-                            </div>
-                        </div>
-                        <!-- Product Content End -->
-                    </div>
-                    <!-- Single Product End -->
-                    <!-- Single Product Start -->
-                    <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="#">
-                                <img class="primary-img" src="img/new-products/1_1.jpg" alt="single-product">
-                                <img class="secondary-img" src="img/new-products/2_2.jpg" alt="single-product">
-                            </a>
-                            <div class="quick-view">
-                                <a href="#" data-toggle="modal" data-target="#myModal"><i class="pe-7s-look"></i>quick view</a>
-                            </div>
-                            <span class="sticker-new">new</span>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content text-center">
-                            <h4><a href="product-page.html">Decorative Vase</a></h4>
-                            <p class="price"><span>$241.99</span></p>
-                            <div class="action-links2">
-                                <a data-toggle="tooltip" title="Add to Cart" href="cart.html">add to cart</a>
-                            </div>
-                        </div>
-                        <!-- Product Content End -->
-                    </div>
-                    <!-- Single Product End -->
-                    <!-- Single Product Start -->
-                    <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="#">
-                                <img class="primary-img" src="img/new-products/6_1.jpg" alt="single-product">
-                                <img class="secondary-img" src="img/new-products/6_2.jpg" alt="single-product">
-                            </a>
-                            <div class="quick-view">
-                                <a href="#" data-toggle="modal" data-target="#myModal"><i class="pe-7s-look"></i>quick view</a>
-                            </div>
-                            <span class="sticker-new">new</span>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content text-center">
-                            <h4><a href="product-page.html">Decorative Vase</a></h4>
-                            <p class="price"><span>$241.99</span></p>
-                            <div class="action-links2">
-                                <a data-toggle="tooltip" title="Add to Cart" href="cart.html">add to cart</a>
-                            </div>
-                        </div>
-                        <!-- Product Content End -->
-                    </div>
-                    <!-- Single Product End -->
-                    <!-- Single Product Start -->
-                    <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="#">
-                                <img class="primary-img" src="img/new-products/2_1.jpg" alt="single-product">
-                                <img class="secondary-img" src="img/new-products/2_2.jpg" alt="single-product">
-                            </a>
-                            <div class="quick-view">
-                                <a href="#" data-toggle="modal" data-target="#myModal"><i class="pe-7s-look"></i>quick view</a>
-                            </div>
-                            <span class="sticker-new">new</span>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content text-center">
-                            <h4><a href="product-page.html">Decorative Vase</a></h4>
-                            <p class="price"><span>$241.99</span></p>
-                            <div class="action-links2">
-                                <a data-toggle="tooltip" title="Add to Cart" href="cart.html">add to cart</a>
-                            </div>
-                        </div>
-                        <!-- Product Content End -->
-                    </div>
-                    <!-- Single Product End -->
-                    <!-- Single Product Start -->
-                    <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="#">
-                                <img class="primary-img" src="img/new-products/8_1.jpg" alt="single-product">
-                                <img class="secondary-img" src="img/new-products/3_2.jpg" alt="single-product">
-                            </a>
-                            <div class="quick-view">
-                                <a href="#" data-toggle="modal" data-target="#myModal"><i class="pe-7s-look"></i>quick view</a>
-                            </div>
-                            <span class="sticker-new">new</span>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content text-center">
-                            <h4><a href="product-page.html">Decorative Vase</a></h4>
-                            <p class="price"><span>$241.99</span></p>
-                            <div class="action-links2">
-                                <a data-toggle="tooltip" title="Add to Cart" href="cart.html">add to cart</a>
-                            </div>
-                        </div>
-                        <!-- Product Content End -->
-                    </div>
-                    <!-- Single Product End -->
+                    @endforeach
                 </div>
             </div>
             <!-- Row End -->

@@ -103,16 +103,18 @@ class SliderController extends Controller
         $image = $request->file('image');
         if (isset($image)) {
             $dir = '/images/slider/';
-            $image = Helper::uploadOriginalImageSize($image,$dir);
+            $images = Helper::uploadImageProduct($image,$dir);
         }else {
-            $image = '';
+            $images = '';
         }
+
+
 
         $slider->update([
             'title' => $title,
             'subtitle' => $subtitle,
             'link' => $link,
-            'image' => $image,
+            'image' => $images,
         ]);
 
         return redirect(route('slider.index'));

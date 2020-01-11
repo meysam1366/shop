@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('width')->nullable();
             $table->string('height')->nullable();
             $table->boolean('status');
-            $table->integer('order')->unique();
+            $table->integer('order');
             $table->timestamps();
 
             $table->foreign('parent_id')->on('categories')->references('id')->onDelete('cascade');
@@ -32,7 +32,9 @@ class CreateProductsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('website');
-            $table->string('img-thumbnail');
+            $table->string('img_thumbnail')->nullable();
+            $table->string('width')->nullable();
+            $table->string('height')->nullable();
             $table->timestamps();
         });
         Schema::create('brand_category', function (Blueprint $table) {

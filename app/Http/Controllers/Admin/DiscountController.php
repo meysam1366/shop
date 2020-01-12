@@ -46,10 +46,12 @@ class DiscountController extends Controller
         $start_time = $this->explodeDate($request->start_time);
         $end_time = $this->explodeDate($request->end_time);
         $count_use = $request->count_use;
+        $discount = $request->discount;
 
         Discount::create([
             'title' => $title,
             'code' => $code,
+            'discount' => $discount,
             'start_time' => $start_time,
             'end_time' => $end_time,
             'count_use' => $count_use,
@@ -97,10 +99,12 @@ class DiscountController extends Controller
         $start_time = $this->explodeDate($request->start_time);
         $end_time = $this->explodeDate($request->end_time);
         $count_use = $request->count_use;
+        $discount = $request->discount;
 
         $discount->update([
             'title' => $title,
             'code' => $code,
+            'discount' => $discount,
             'start_time' => $start_time,
             'end_time' => $end_time,
             'count_use' => $count_use,

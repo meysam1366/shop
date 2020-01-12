@@ -148,7 +148,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('option_product') }}" class="nav-link">
+                                <a href="{{ route('discount_product') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>تخصیص تخفیف به محصول</p>
                                 </a>
@@ -284,13 +284,13 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ route('user.index') }}" class="nav-link">
+                                        <a href="{{ route('specials') }}" class="nav-link">
                                             <i class="fa fa-user nav-icon"></i>
                                             <p>لیست محصولات ویژه</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('user.index') }}" class="nav-link">
+                                        <a href="{{ route('special.create') }}" class="nav-link">
                                             <i class="fa fa-user nav-icon"></i>
                                             <p>تعریف محصول ویژه</p>
                                         </a>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Brand;
 use App\Product;
+use App\Special;
 use App\Category;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
@@ -177,5 +178,42 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->delete();
         return back()->with('success','محصول موردنظر با موفقیت حذف شد');
+    }
+
+    public function specials()
+    {
+        $specials = Special::all();
+        return view('admin.product.specials',compact('specials'));
+    }
+
+    public function special_create()
+    {
+        $products = Product::all()->pluck('title','id')->toArray();
+        return view('admin.product.special_create',compact('products'));
+    }
+
+    public function special_store(Request $request)
+    {
+        $this->validate($request,[
+            'product_id' => 'required',
+            'start_time' => 'required',
+            'end_time' => 'required',
+            'discount' => 'required',
+        ]);
+
+        $product_id = $request->product_id;
+        $start_time = Helper::explodeDate($request->start_time);
+        $end_time = Helper::explodeDate($request->end_time);
+        $discount = $request->discount;
+
+        Special::create([
+            'title' => '-',
+            'product_id' => $product_id,
+            'start_time' => $start_time,
+            'end_time' => $end_time,
+            'discount' => $discount,
+        ]);
+
+        return redirect(route('specials'));
     }
 }

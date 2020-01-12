@@ -67,5 +67,16 @@ class Helper {
         else return str_replace($fa_num, $en_num, $srting);
     }
 
+    public static function explodeDate($fullDate)
+    {
+        $fullDate = self::convertNumbers($fullDate,false);
+        $date = explode('-',$fullDate);
+        $year = $date[0];
+        $month = $date[1];
+        $day = $date[2];
+        $date = self::convertToGregorian($year,$month,$day);
+        $date = implode('-',$date);
+        return $date;
+    }
 
 }

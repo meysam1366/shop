@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Product;
 use App\Discount;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
@@ -96,8 +97,8 @@ class DiscountController extends Controller
         $discount = Discount::findOrFail($id);
         $title = $request->title;
         $code = $request->code;
-        $start_time = $this->explodeDate($request->start_time);
-        $end_time = $this->explodeDate($request->end_time);
+        $start_time = Helper::explodeDate($request->start_time);
+        $end_time = Helper::explodeDate($request->end_time);
         $count_use = $request->count_use;
         $discount = $request->discount;
 
@@ -126,15 +127,10 @@ class DiscountController extends Controller
         return back()->with('success','تخفیف موردنظر با موفقیت حذف شد');
     }
 
-    public function explodeDate($fullDate)
+    public function discount_product()
     {
-        $fullDate = Helper::convertNumbers($fullDate,false);
-        $date = explode('-',$fullDate);
-        $year = $date[0];
-        $month = $date[1];
-        $day = $date[2];
-        $date = Helper::convertToGregorian($year,$month,$day);
-        $date = implode('-',$date);
-        return $date;
+        $products = Product::all()->pluck('title','id')->toArray();
+        $discounts = Discount::all()->pluck('title','id','code')->toArray();
+        return view('admin.discount.discount_product',compact('products','discounts'));
     }
 }

@@ -17,7 +17,13 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
     Route::resource('slider','SliderController');
     Route::resource('brand','BrandController');
     Route::resource('color','ColorController');
+    Route::get('discount_product','DiscountController@discount_product')->name('discount_product');
+    Route::post('discount_product','DiscountController@discount_product_store')->name('discount_product_store');
     Route::resource('discount','DiscountController');
+    Route::get('specials','ProductController@specials')->name('specials');
+    Route::get('special/create','ProductController@special_create')->name('special.create');
+    Route::post('special/store','ProductController@special_store')->name('special.store');
+    Route::delete('special/delete/{special}','ProductController@special_delete')->name('special.delete');
     Route::resource('product','ProductController');
     Route::get('option_product','OptionController@option_product')->name('option_product');
     Route::post('option_product','OptionController@option_product_store')->name('option_product_store');
